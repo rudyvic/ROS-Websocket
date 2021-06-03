@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://ROSStdMsgsString/ROSTestStringSubscriber.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ROSStdMsgsString/ROSTestStringPublisher.tscn" type="PackedScene" id=3]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblTestSub" type="Label" parent="."]
+margin_left = 130.0
+margin_top = 271.0
+margin_right = 404.0
+margin_bottom = 374.0
+text = "Read from ROS (topic /test_topic):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblConnected" type="Label" parent="."]
+margin_left = 168.0
+margin_top = 39.0
+margin_right = 850.0
+margin_bottom = 90.0
+text = "Not connected."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="linFieldString" type="LineEdit" parent="."]
+margin_left = 414.0
+margin_top = 280.0
+margin_right = 679.0
+margin_bottom = 304.0
+placeholder_text = "field_string"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnPublish" type="Button" parent="."]
+margin_left = 710.0
+margin_top = 283.0
+margin_right = 769.0
+margin_bottom = 303.0
+text = "Publish"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnConnect" type="Button" parent="."]
+margin_left = 620.0
+margin_top = 68.0
+margin_right = 684.0
+margin_bottom = 88.0
+text = "Connect"
+
+[node name="linWebsocketURL" type="LineEdit" parent="."]
+margin_left = 326.0
+margin_top = 64.0
+margin_right = 587.0
+margin_bottom = 88.0
+text = "ws://localhost:9090"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ROSTestStringPublisher" parent="." instance=ExtResource( 3 )]
+
+[node name="ROSTestStringSubscriber" parent="." instance=ExtResource( 2 )]
+[connection signal="pressed" from="btnPublish" to="." method="_on_btnPublish_pressed"]
+[connection signal="pressed" from="btnConnect" to="." method="_on_btnConnect_pressed"]
