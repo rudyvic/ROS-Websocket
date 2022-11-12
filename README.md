@@ -2,6 +2,8 @@
 
 This repository contains some Godot nodes to interact with a ROS Websocket. It is possible to publish messages on topics, subscribe to topics, call services and read the services responses.
 
+> :warning: This works with Godot 3.x (no with Godot 4.x).
+
 
 ## INSTALLATION
 
